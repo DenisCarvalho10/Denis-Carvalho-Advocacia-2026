@@ -409,6 +409,33 @@ section{position:relative}
   .footer .grid{grid-template-columns:1fr 1fr}
   .aud-grid{grid-template-columns:repeat(3,1fr)}
 }
+@media(max-width:980px){
+
+  .nav{
+    gap:.5rem;
+  }
+
+  .nav-links{
+    gap:.55rem;
+  }
+
+  .nav-links a{
+    font-size:.78rem;
+  }
+
+  .nav-cta .btn{
+    padding:.7rem .95rem;
+  }
+
+  .brand img{
+    height:68px;
+    width:auto;
+    max-width:none;
+    object-fit:contain;
+    flex-shrink:0;
+  }
+
+}
 @media(max-width:900px){
    .brand img{
     height:64px;
