@@ -12,7 +12,7 @@
   // === Armazenamento dos leads (definir após escolher o serviço) ===
   // Deixe "" para apenas entregar o e-book (sem guardar os dados).
   // Ao usar Web3Forms: cole aqui a Access Key gerada em https://web3forms.com
-  var LEAD_FORM_ACCESS_KEY = "";
+  var LEAD_FORM_ACCESS_KEY = "477f7d7c-69b6-42f8-90be-0ab8c1010499";
 
   function salvarLead(nome, email) {
     if (!LEAD_FORM_ACCESS_KEY) return; // sem serviço configurado ainda
