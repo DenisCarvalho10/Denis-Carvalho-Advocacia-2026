@@ -5,6 +5,43 @@
   "use strict";
 
   var WA_NUMBER = "5562992586422"; // WhatsApp principal (62) 99258-6422
+
+  // E-book entregue ao preencher o formulário lateral
+  var EBOOK_URL = "assets/ebooks/guia-7-direitos-paciente-profissional-saude.pdf";
+
+  // === Armazenamento dos leads (definir após escolher o serviço) ===
+  // Deixe "" para apenas entregar o e-book (sem guardar os dados).
+  // Ao usar Web3Forms: cole aqui a Access Key gerada em https://web3forms.com
+  var LEAD_FORM_ACCESS_KEY = "";
+
+  function salvarLead(nome, email) {
+    if (!LEAD_FORM_ACCESS_KEY) return; // sem serviço configurado ainda
+    try {
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          access_key: LEAD_FORM_ACCESS_KEY,
+          subject: "Novo lead do e-book — Denis Carvalho Advocacia",
+          from_name: "Site Denis Carvalho Advocacia",
+          nome: nome,
+          email: email,
+          material: "Guia: 7 direitos (paciente e profissional da saúde)"
+        })
+      });
+    } catch (e) {}
+  }
+
+  function baixarEbook() {
+    var a = document.createElement("a");
+    a.href = EBOOK_URL;
+    a.setAttribute("download", "");
+    a.target = "_blank";
+    a.rel = "noopener";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
   function wa(msg) {
     return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
   }
@@ -128,14 +165,15 @@
   if (leadForm) {
     leadForm.addEventListener("submit", function (e) {
       e.preventDefault();
+      var consent = $("#leadConsent");
+      if (consent && !consent.checked) { consent.focus(); return; }
       var nome = $("#leadNome").value.trim();
       var email = $("#leadEmail").value.trim();
-      // Sem backend: registra intenção e direciona ao WhatsApp para envio do material
-      var texto = "Olá! Sou " + nome + " (" + email + ") e gostaria de receber o e-book gratuito sobre Direito Médico.";
-      window.open(wa(texto), "_blank");
-      showToast("Perfeito, " + nome.split(" ")[0] + "! Vamos te enviar o material.");
+      salvarLead(nome, email);   // guarda o lead (se houver serviço configurado)
+      baixarEbook();             // entrega o e-book na hora
+      showToast("Pronto, " + nome.split(" ")[0] + "! Seu e-book está sendo baixado. 📘");
       leadForm.reset();
-      closeLead();
+      setTimeout(closeLead, 1200);
     });
   }
 
