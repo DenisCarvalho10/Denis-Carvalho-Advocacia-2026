@@ -403,6 +403,13 @@ section{position:relative}
   .aud-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:760px){
+   .brand img{
+    height:60px;
+    width:auto;
+    max-width:180px;
+    object-fit:contain;
+    flex-shrink:0;
+}
   .nav-links{position:fixed;top:0;right:0;height:100vh;width:min(80vw,320px);background:#fff;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:6rem 2rem 2rem;gap:1.4rem;box-shadow:var(--shadow-lg);transform:translateX(110%);transition:transform .35s;z-index:905}
   .nav-links.open{transform:translateX(0)}
   .nav-toggle{display:flex;z-index:910}
