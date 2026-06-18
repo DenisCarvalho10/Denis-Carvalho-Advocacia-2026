@@ -98,7 +98,7 @@ section{position:relative}
 /* ---------- Header / Nav ---------- */
 .site-header{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
 .site-header.scrolled{box-shadow:var(--shadow-sm)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1.3rem;min-height:96px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:110px}
 .brand{display:flex;align-items:center;gap:.7rem}
 .brand img{height:84px;width:auto;border-radius:8px}
 .brand .brand-txt{display:flex;flex-direction:column;line-height:1.05}
