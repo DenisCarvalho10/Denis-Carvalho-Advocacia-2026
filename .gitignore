@@ -1,0 +1,11 @@
+# Backups e arquivos locais
+assets.zip
+*.zip
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependências (caso futuramente use build)
+node_modules/
