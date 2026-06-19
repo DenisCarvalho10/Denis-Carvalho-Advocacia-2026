@@ -109,8 +109,8 @@ section{position:relative}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--gold);transition:width .25s}
 .nav-links a:hover::after{width:100%}
 .nav-cta{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
-.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
-.nav-toggle span{width:26px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:9px;flex-direction:column;gap:6px;flex-shrink:0;border-radius:8px}
+.nav-toggle span{width:30px;height:3px;background:var(--navy);border-radius:2px;transition:.3s}
 .nav-toggle.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
 .nav-toggle.open span:nth-child(2){opacity:0}
 .nav-toggle.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
@@ -423,7 +423,11 @@ section{position:relative}
   .leadin{max-width:300px}
   body{font-size:16px}
 }
+@media(max-width:640px){
+  .brand img{height:46px}
+}
 @media(max-width:420px){
   .container{padding:0 16px}
   .hero-cta .btn{width:100%}
+  .brand img{height:42px}
 }
